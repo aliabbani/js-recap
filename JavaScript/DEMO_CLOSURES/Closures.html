@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title>JavaScript Tutorial</title>
+        <p id ="demo"></p>
+    </head>
+    <body>
+
+    <!-- global and local variable -->
+    <!-- <script>
+        let a = 10;
+        function My_function(){
+            let b = 20
+            document.write(a+b)
+        }
+        My_function()
+    </script> -->
+
+    <!-- closure -->
+    <script>
+        var a = 10;
+        function First_func(){
+            var b = 20;
+            function Second_func(){
+                var c = a+b
+                return c
+            }
+            return Second_func();
+        }
+        var sum = First_func()
+        document.write("The sum is " + sum + "<br>")
+    </script>
+
+    </body>
+</html>
