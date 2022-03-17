@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <title>JavaScript Async/Await</title>
+        <p id="demo"></p>
+    </head>
+    <body>
+        <script>
+            // Pure promise example
+            // let result = function(score){
+            //     return new Promise(function(resolve,reject){
+            //         console.log("calculation results...")
+            //         if(score > 50)
+            //             resolve("congratulation! You have passed")
+            //         else
+            //             reject("You have failed")
+            //     })
+            // }
+            // let grade = function(response){
+            //     return new Promise(function(resolve,reject){
+            //         console.log("calculating your grade...")
+            //         resolve("Your grade is A. " + response)
+            //     })
+            // }
+            // result(80).then(response => {
+            //     console.log("Result received")
+            //     return grade(response)
+            // }).then(finalgrade => {
+            //     console.log(finalgrade)
+            // }).catch(err => {
+            //     console.log(err)
+            // })
+            
+            // Async await
+            let result = function(score){
+                return new Promise(function(resolve,reject){
+                    console.log("calculation results...")
+                    if(score > 50)
+                        resolve("congratulation! You have passed")
+                    else
+                        reject("You have failed")
+                })
+            }
+            let grade = function(response){
+                return new Promise(function(resolve,reject){
+                    console.log("calculating your grade...")
+                    resolve("Your grade is A. " + response)
+                })
+            }
+            async function calculateResults(){
+                try{
+                    const response = await result(80)
+                    console.log("Result received")
+                    const finalgrade = await grade(response)
+                    console.log(finalgrade)
+                }catch(err){
+                    console.log(err)
+                }
+            }
+            calculateResults()
+        </script>
+    </body>
+</html>
